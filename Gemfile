@@ -12,11 +12,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bootstrap-sass'
-
-
+gem 'simple_form'
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem 'redcarpet'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -26,6 +24,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
+  gem 'spring-commands-cucumber'
 end
 
 group :development do
@@ -37,6 +36,8 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'cucumber-rails',require: false
+  gem 'database_cleaner'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
