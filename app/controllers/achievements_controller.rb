@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class AchievementsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :owners_only, only: %i[edit update destroy]
+
   def index
     @achievements = Achievement.public_access
   end
@@ -9,25 +12,22 @@ class AchievementsController < ApplicationController
     @achievement = Achievement.new
   end
 
-  def edit
-    @achievement = Achievement.find(params[:id])
+  def create
+    @achievement = Achievement.new(achievement_params)
+    if @achievement.save
+      redirect_to achievement_url(@achievement), notice: 'Achievement has been created'
+    else
+      render :new
+    end
   end
 
+  def edit; end
+
   def update
-    @achievement = Achievement.find(params[:id])
     if @achievement.update_attributes(achievement_params)
       redirect_to achievement_path(@achievement)
     else
       render :edit
-    end
-  end
-
-  def create
-    @achievement = Achievement.new(achievement_params)
-    if @achievement.save
-      redirect_to achievement_path(@achievement), notice: 'Achievement has been created'
-    else
-      render :new
     end
   end
 
@@ -36,13 +36,18 @@ class AchievementsController < ApplicationController
   end
 
   def destroy
-    Achievement.destroy(params[:id])
-    redirect_to achievement_path
+    @achievement.destroy
+    redirect_to achievements_path
   end
 
   private
 
   def achievement_params
     params.require(:achievement).permit(:title, :description, :privacy, :cover_image, :featured)
+  end
+
+  def owners_only
+    @achievement = Achievement.find(params[:id])
+    redirect_to achievements_path if current_user != @achievement.user
   end
 end
