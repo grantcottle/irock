@@ -13,6 +13,7 @@ feature 'create new achievement' do
     login_form.visit_page.login_as(user)
   end
   scenario 'create new achievement with valid data' do
+    pending
     new_achievement_form.visit_page.fill_in_with(
       title: 'Read a book'
     ).submit
