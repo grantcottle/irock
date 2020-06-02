@@ -96,9 +96,15 @@ describe AchievementsController do
       context 'valid data' do
         let(:valid_data) { FactoryBot.attributes_for(:public_achievement, user_id: user.id) }
         it 'redirects to achievements#show' do
-          post :create, params: { achievement: valid_data.to_h }
-          expect(response).to be_success
+          post :create, params: { achievement: valid_data }
+          expect(response).to redirect_to(achievement_path(assigns[:achievement])) 
         end
+
+        it 'creates new achievement in database' do
+            expect { 
+                post :create, params: { achievement: valid_data }
+             }.to change(Achievement, :count).by(1)
+        end 
       end
 
       context 'invalid data' do

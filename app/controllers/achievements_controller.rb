@@ -13,6 +13,7 @@ class AchievementsController < ApplicationController
   end
 
   def create
+    # (achievement_params.to_h, current_user)
     @achievement = Achievement.new(achievement_params)
     @achievement.user = current_user
     if @achievement.save
