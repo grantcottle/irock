@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=Achievement+1
+    headers:
+      User-Agent:
+      - TwitterRubyGem/6.2.0
+      Authorization:
+      - OAuth oauth_consumer_key="kc63ltjxiMyNfuc1SPwQkRVAv", oauth_nonce="f6b56203b07920ed256bf01a8b6e1ce5",
+        oauth_signature="l7djbWITvYWpELhJCYEsFwgRrZA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1591649792", oauth_token="1268934831108288512-kaeRfMbzlz5XgJfPDRhFsXKPWDCJUC",
+        oauth_version="1.0"
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Connection:
+      - close
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1979'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 08 Jun 2020 20:56:32 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Mon, 08 Jun 2020 20:56:32 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A159164979277485180; Max-Age=63072000; Expires=Wed, 8 Jun 2022
+        20:56:32 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None
+      - lang=en; Path=/
+      - personalization_id="v1_9U4z+vWYtXwis0daR3KQmQ=="; Max-Age=63072000; Expires=Wed,
+        8 Jun 2022 20:56:32 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 43053b5d202418897182a7e21ce5ce4d
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '104'
+      X-Transaction:
+      - 00ae344300c35eb4
+      X-Tsa-Request-Body-Time:
+      - '1'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"Mon Jun 08 20:56:32 +0000 2020","id":1270097402918080512,"id_str":"1270097402918080512","text":"Achievement
+        1","truncated":false,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"source":"\u003ca
+        href=\"http:\/\/grantcottle.com\" rel=\"nofollow\"\u003etw-achievements\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":1268934831108288512,"id_str":"1268934831108288512","name":"dev
+        122345","screen_name":"dev_122345","location":"","description":"sandbox account","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Fri
+        Jun 05 15:57:55 +0000 2020","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":3,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"F5F8FA","profile_background_image_url":null,"profile_background_image_url_https":null,"profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/1268971697895432192\/JdQZPXf-_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/1268971697895432192\/JdQZPXf-_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/1268934831108288512\/1591381463","profile_link_color":"1DA1F2","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":true,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"en"}'
+  recorded_at: Mon, 08 Jun 2020 20:56:32 GMT
+recorded_with: VCR 6.0.0

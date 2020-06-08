@@ -93,7 +93,7 @@ describe AchievementsController do
     end
 
     describe 'POST create' do
-      context 'valid data' do
+      context 'valid data', :vcr do
         let(:valid_data) { FactoryBot.attributes_for(:public_achievement, user_id: user.id) }
         it 'redirects to achievements#show' do
           post :create, params: { achievement: valid_data }

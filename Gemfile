@@ -16,6 +16,9 @@ gem 'simple_form'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'redcarpet'
 gem "devise", ">= 4.7.1"
+gem "carrierwave"
+gem 'twitter'
+gem 'active_model_serializers'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -26,6 +29,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'
   gem 'rails-controller-testing'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -40,6 +44,8 @@ group :test do
   gem 'cucumber-rails',require: false
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

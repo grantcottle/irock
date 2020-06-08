@@ -2,6 +2,7 @@
 
 class Achievement < ApplicationRecord
   belongs_to :user
+  has_many :encouragements
   validates :user, presence:true
   validates :title, presence: true
   validates :title, uniqueness: { 
@@ -9,6 +10,7 @@ class Achievement < ApplicationRecord
     message: "you can't have two achievements with the same title" }
   enum privacy: %i[public_access private_access friends_access]
 
+  mount_uploader :cover_image, CoverImageUploader
   def description_html
     Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
   end

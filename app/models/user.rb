@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :achievement
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :encouragements
 end

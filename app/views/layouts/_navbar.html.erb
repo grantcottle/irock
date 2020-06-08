@@ -5,9 +5,14 @@
     <span class="navbar-toggler-icon">
     </span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <ul class="navbar-nav">
-      <li><%= link_to 'New Achievement', new_achievement_path  %></li>
+  <div class="collapse navbar-collapse navbar-ex1-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><%= link_to 'New Achievement', new_achievement_path, class: "nav-link"  %></li>
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete , class: "nav-link"  %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Login', new_user_session_path , class: "nav-link"  %></li>
+      <% end %>
     </ul>
   </div>
 </nav>

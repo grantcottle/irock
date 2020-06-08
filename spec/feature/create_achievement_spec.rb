@@ -12,13 +12,13 @@ feature 'create new achievement' do
   background  do
     login_form.visit_page.login_as(user)
   end
-  scenario 'create new achievement with valid data' do
+  scenario 'create new achievement with valid data' , :vcr do
     new_achievement_form.visit_page.fill_in_with(
-      title: 'Read a book'
+      title: 'Read a book',
+      cover_image: 'cover_image.png'
     ).submit
-
-    expect(page).to have_content('Achievement has been created')
-    expect(Achievement.last.title).to eq('Read a book')
+    expect(ActionMailer::Base.deliveries.count).to eql(1)
+    expect(page).to have_content("We tweeted for you! https://twitter.com") 
   end
 
   scenario 'cannot create achievement with invalid data' do
